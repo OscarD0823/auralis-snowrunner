@@ -5,7 +5,7 @@ import type { UserConfig } from 'vite'
 import { defineConfig } from 'vite'
 import { viteStaticCopy } from './static-assets.js'
 import { paths } from './paths.js'
-import { alias, external, externalizePlugin, pluginExposeRenderer } from './vite.base.config.js'
+import { alias, external, externalizePlugin, pluginExposeRenderer, transpileTypeScript } from './vite.base.config.js'
 
 /** Папка, в которой находится текущий исполняемый скрипт. */
 const _dirname = dirname(fileURLToPath(import.meta.url))
@@ -27,6 +27,7 @@ export default defineConfig(forgeEnv => {
 			rollupOptions: {
 				input: { general: getPagePath('general') },
 				output: {
+					keepNames: true,
 					manualChunks: undefined,
 					dir: '.vite/renderer'
 				},
@@ -34,6 +35,7 @@ export default defineConfig(forgeEnv => {
 			}
 		},
 		plugins: [
+			transpileTypeScript(),
 			externalizePlugin({ filter: /\/main(\.ts)?$/ }),
 			pluginExposeRenderer('renderer'),
 			pluginVue(),

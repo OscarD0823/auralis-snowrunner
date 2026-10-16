@@ -15,12 +15,14 @@ export default defineConfig(forgeEnv => {
 		build: {
 			lib: {
 				entry: forgeConfig['entry'],
-				fileName: () => '[name].mjs',
-				formats: ['es']
+				fileName: () => '[name].cjs',
+				formats: ['cjs']
 			},
 			rollupOptions: {
 				output: {
-					manualChunks: undefined
+					keepNames: true,
+					manualChunks: undefined,
+					chunkFileNames: '[name]-[hash].cjs'
 				},
 				external: [...external, '**/renderer']
 			}

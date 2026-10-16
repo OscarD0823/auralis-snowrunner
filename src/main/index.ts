@@ -11,9 +11,16 @@ if (squirrelStartup && !process.windowsStore) {
 	app.quit()
 } else {
 	app.setAppUserModelId('com.squirrel.SnowRunnerStudio.SnowRunnerStudio')
+	void startProgram().catch(error => {
+		console.error('Auralis SnowRunner Studio could not start:', error)
+		app.exit(1)
+	})
+}
+
+async function startProgram() {
 	await registerDI()
 	await publishMain()
-	void runProgram()
+	await runProgram()
 }
 
 /** Запустить программу. */

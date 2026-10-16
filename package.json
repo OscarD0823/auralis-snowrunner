@@ -1,14 +1,14 @@
 {
   "name": "snowrunner-studio-es",
   "productName": "Auralis SnowRunner Studio",
-  "version": "2.7.0",
+  "version": "2.7.1",
   "description": "Editor visual multilingüe para vehículos, remolques y componentes de SnowRunner.",
   "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/OscarD0823/snowrunner.git"
   },
-  "main": ".vite/build/index.mjs",
+  "main": ".vite/build/index.cjs",
   "scripts": {
     "icons:generate": "electron scripts/generate-icon.cjs",
     "test:icons": "electron scripts/generate-icon.cjs --check",

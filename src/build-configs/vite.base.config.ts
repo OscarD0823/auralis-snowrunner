@@ -2,6 +2,7 @@ import { builtinModules } from 'node:module'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import type { Plugin, UserConfig } from 'vite'
+import ts from 'typescript'
 
 /** Папка, в которой находится текущий исполняемый скрипт. */
 const _dirname = dirname(fileURLToPath(import.meta.url))
@@ -49,7 +50,25 @@ export function getBuildConfig(env: any): UserConfig {
 			minify: ['package', 'build'].includes(command)
 		},
 		resolve: { alias },
+		plugins: [transpileTypeScript()],
 		clearScreen: false
+	}
+}
+
+// The native runtime does not yet parse standard decorators. Keep their
+// TypeScript semantics instead of shipping untransformed @inject syntax.
+export function transpileTypeScript(): Plugin {
+	return {
+		name: 'auralis-typescript-decorators',
+		enforce: 'pre',
+		transform(code, id) {
+			if (!id.endsWith('.ts') || !id.replaceAll('\\', '/').includes('/src/') || id.includes('node_modules')) return
+			const result = ts.transpileModule(code, {
+				fileName: id,
+				compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ESNext, importHelpers: true, sourceMap: true, useDefineForClassFields: true }
+			})
+			return { code: result.outputText, map: result.sourceMapText ? JSON.parse(result.sourceMapText) : null }
+		}
 	}
 }
 

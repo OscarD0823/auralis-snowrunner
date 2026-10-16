@@ -13,7 +13,7 @@ export class Paths implements IMainPathsManager {
 	private readonly REPOS_URL = 'https://github.com/OscarD0823/snowrunner'
 
 	/** Папка, в которой находится текущий исполняемый скрипт. */
-	private readonly dirname = dirname(fileURLToPath(import.meta.url))
+	private readonly dirname = __dirname
 
 	/** Almacenamiento que no se elimina al recompilar la aplicación. */
 	private readonly dataRoot = process.env.SNOWRUNNER_DATA_ROOT

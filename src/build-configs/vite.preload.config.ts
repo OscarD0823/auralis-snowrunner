@@ -15,6 +15,7 @@ export default defineConfig(forgeEnv => {
 				external: [...external, '**/renderer'],
 				input: forgeConfig['entry'],
 				output: {
+					keepNames: true,
 					manualChunks: undefined,
 					format: 'cjs',
 					inlineDynamicImports: true,
