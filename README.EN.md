@@ -15,7 +15,7 @@
 
 ## Install
 
-Open **Assets** on the [latest release](https://github.com/OscarD0823/auralis-snowrunner/releases/latest) and download **SnowRunner.Studio.Setup.exe**. Requires Windows x64 and a local SnowRunner installation; Node.js is only needed for development. Updates are distributed through GitHub, not Microsoft Store.
+Open **Assets** on the [latest release](https://github.com/OscarD0823/auralis-snowrunner/releases/latest) and download **Auralis.SnowRunner.Studio.Setup.exe**. Requires Windows x64 and a local SnowRunner installation; Node.js is only needed for development. Updates are distributed through GitHub, not Microsoft Store.
 
 **Optional updates:** use ↻ to check for a new release, download it in your browser or keep the current version. Nothing is downloaded or installed automatically.
 

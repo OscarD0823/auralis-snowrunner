@@ -15,7 +15,7 @@
 
 ## Instalar
 
-En la [última versión publicada](https://github.com/OscarD0823/auralis-snowrunner/releases/latest), abre **Assets** y descarga **SnowRunner.Studio.Setup.exe**. Está pensado para Windows x64 con SnowRunner instalado; no necesitas Node.js para usarlo. Las actualizaciones se distribuyen por GitHub, no por Microsoft Store.
+En la [última versión publicada](https://github.com/OscarD0823/auralis-snowrunner/releases/latest), abre **Assets** y descarga **Auralis.SnowRunner.Studio.Setup.exe**. Está pensado para Windows x64 con SnowRunner instalado; no necesitas Node.js para usarlo. Las actualizaciones se distribuyen por GitHub, no por Microsoft Store.
 
 **Actualizaciones opcionales:** el botón ↻ permite buscar una versión nueva, descargarla en el navegador o seguir con la actual. No hay descargas ni instalaciones automáticas.
 
