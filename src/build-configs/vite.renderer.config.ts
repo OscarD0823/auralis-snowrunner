@@ -3,7 +3,7 @@ import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import type { UserConfig } from 'vite'
 import { defineConfig } from 'vite'
-import { viteStaticCopy } from 'vite-plugin-static-copy'
+import { viteStaticCopy } from './static-assets.js'
 import { paths } from './paths.js'
 import { alias, external, externalizePlugin, pluginExposeRenderer } from './vite.base.config.js'
 

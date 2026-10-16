@@ -1,6 +1,6 @@
 import type { UserConfig } from 'vite'
 import { defineConfig, mergeConfig } from 'vite'
-import { viteStaticCopy } from 'vite-plugin-static-copy'
+import { viteStaticCopy } from './static-assets.js'
 import { paths } from './paths.js'
 import { external, externalizePlugin, getBuildConfig, getBuildDefine, pluginHotRestart } from './vite.base.config.js'
 
@@ -15,7 +15,7 @@ export default defineConfig(forgeEnv => {
 		build: {
 			lib: {
 				entry: forgeConfig['entry'],
-				fileName: () => '[name].js',
+				fileName: () => '[name].mjs',
 				formats: ['es']
 			},
 			rollupOptions: {

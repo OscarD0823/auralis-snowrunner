@@ -5,7 +5,7 @@ import { readFile, readdir, stat } from 'node:fs/promises'
 import { join, relative } from 'node:path'
 import { openPromise } from 'yauzl'
 
-const root=process.cwd(),appRoot=join(root,'out/Auralis SnowRunner Studio-win32-x64/resources/app')
+const root=process.cwd(),output=process.env.SNOWRUNNER_BUILD_OUT||join(root,'out'),appRoot=join(output,'Auralis SnowRunner Studio-win32-x64/resources/app')
 const version=JSON.parse(await readFile(join(root,'package.json'),'utf8')).version
 assert.equal(JSON.parse(await readFile(join(appRoot,'package.json'),'utf8')).version,version)
 async function hash(stream){const h=createHash('sha256');for await(const chunk of stream)h.update(chunk);return h.digest('hex')}
@@ -18,9 +18,9 @@ const renderers=[...portable.keys()].filter(n=>/\.vite\/renderer\/(?:.*\/)?asset
 assert(renderers.length,'Missing renderer bundle')
 const bundle=(await Promise.all(renderers.map(n=>readFile(join(appRoot,n),'utf8')))).join('\n')
 for(const key of ['data-project-link','https://github.com/OscarD0823','https://github.com/OscarD0823/snowrunner'])assert(bundle.includes(key),'Missing identity/link in renderer: '+key)
-const releases=(await readFile(join(root,'out/make/squirrel.windows/x64/RELEASES'),'utf8')).trim().split(/\s+/)
+const releases=(await readFile(join(output,'make/squirrel.windows/x64/RELEASES'),'utf8')).trim().split(/\s+/)
 assert(releases[1].includes('-'+version+'-'))
-const pkg=join(root,'out/make/squirrel.windows/x64',releases[1])
+const pkg=join(output,'make/squirrel.windows/x64',releases[1])
 assert.equal(Number(releases[2]),(await stat(pkg)).size)
 assert.equal(releases[0].toLowerCase(),createHash('sha1').update(await readFile(pkg)).digest('hex'))
 const zip=await openPromise(pkg,{lazyEntries:true,strictFileNames:true,validateEntrySizes:true}),seen=new Set()

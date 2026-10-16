@@ -6,7 +6,7 @@ import type { IBaseRendererArray } from './types'
 /** Базовый класс для массива в renderer-process. */
 export abstract class BaseRendererArray<Item, Extended = Item> extends BaseArray<Item, Extended> implements IBaseRendererArray<Item, Extended> {
 	@mainArrayAccessor()
-	override accessor arr: Item[] = []
+	accessor arr: Item[] = []
 
 	@mainMethod()
 	reset!: BaseMainArray<Item, Extended>['reset']

@@ -90,6 +90,7 @@ class ForgeConfig {
 							},
 							{
 								entry: join(_dirname, '../renderer/preload.ts'),
+								target: 'preload',
 								config: this.preloadConfigPath
 							}
 						],

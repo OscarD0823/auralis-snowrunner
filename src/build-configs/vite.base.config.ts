@@ -108,9 +108,10 @@ export function pluginExposeRenderer(name: string): Plugin {
 export function pluginHotRestart(command: 'reload' | 'restart'): Plugin {
 	return {
 		name: '@electron-forge/plugin-vite:hot-restart',
+		apply: 'serve',
 		closeBundle() {
 			if (command === 'reload') {
-				for (const server of Object.values(process.viteDevServers)) {
+				for (const server of Object.values(process.viteDevServers ?? {})) {
 					server.hot.send({ type: 'full-reload' })
 				}
 			} else {
