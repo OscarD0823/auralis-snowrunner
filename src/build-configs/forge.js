@@ -26,7 +26,7 @@ class ForgeConfig {
 			outDir: process.env.SNOWRUNNER_BUILD_OUT || 'out',
 			packagerConfig: {
 				overwrite: true,
-				executableName: 'SnowRunner Studio',
+				executableName: 'Auralis SnowRunner Studio',
 				icon: '.vite/favicon.ico',
 				appBundleId: 'com.oscard0823.snowrunnerstudio',
 				// El plugin de Vite solo necesita copiar su salida compilada.
@@ -40,11 +40,11 @@ class ForgeConfig {
 						name: 'SnowRunnerStudio',
 						authors: 'OscarD0823',
 						description: 'Editor visual multilingüe para SnowRunner',
-						exe: 'SnowRunner Studio.exe',
-						setupExe: 'SnowRunner Studio Setup.exe',
+						exe: 'Auralis SnowRunner Studio.exe',
+						setupExe: 'Auralis SnowRunner Studio Setup.exe',
 						setupIcon: join(_dirname, '../images/favicon.ico'),
 						iconUrl: 'https://raw.githubusercontent.com/OscarD0823/snowrunner/main/src/images/favicon.ico',
-						shortcutName: 'SnowRunner Studio',
+						shortcutName: 'Auralis SnowRunner Studio',
 						noMsi: true
 					}
 				}

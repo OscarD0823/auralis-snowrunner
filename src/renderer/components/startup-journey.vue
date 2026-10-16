@@ -41,7 +41,7 @@
         <image :href="appIcon" x="39" y="92" width="66" height="66" />
       </g>
       <g class="journey-convoy">
-        <JourneyVehicle kind="expedition" :decal="appEmblem" label="SnowRunner Studio"/>
+        <JourneyVehicle kind="expedition" :decal="appEmblem" label="Auralis SnowRunner Studio"/>
         <g transform="translate(25,76)" data-emitter="rear-contact">
           <g class="journey-spray journey-spray--snow"><TerrainParticles material="snow" kind="spray"/></g>
           <g class="journey-spray journey-spray--dust"><TerrainParticles material="dust" kind="cloud" :count="9"/></g>

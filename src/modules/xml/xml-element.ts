@@ -5,6 +5,7 @@ import { FILES_TOKEN } from '@utilities/di/renderer/tokens'
 import type { Cheerio } from 'cheerio'
 import { load } from 'cheerio'
 import xmlFormat from 'xml-formatter'
+import {changedXml,pendingXml,registerXmlDocument} from '@renderer/utilities/xml-recovery'
 
 /** Объект DOM элемента. */
 export class XMLElement {
@@ -24,9 +25,16 @@ export class XMLElement {
 			: source as string
 		const xml = load(data || '', { xml: true })
 
-		return data && xml.xml()
-			? new this(xml.root())
-			: undefined
+        if(!data||!xml.xml())return
+        let result=new this(xml.root())
+        if(typeof window!=='undefined'&&files.isFile(source)){
+            try{
+                const baseline=result.baseXML,pending=pendingXml(localStorage,(source as IFile).path,baseline)
+                if(pending){const restored=load(pending,{xml:true}),tags=xml.root().children().toArray().map(n=>(n as any).name).join('|');if(restored.root().children().toArray().map(n=>(n as any).name).join('|')===tags)result=new this(restored.root())}
+                registerXmlDocument(result.toCheerio().get(0),(source as IFile).path,baseline,()=>result.baseXML,localStorage)
+            }catch{ /* An unavailable draft store never prevents opening the game file. */ }
+        }
+        return result
 	}
 
 	constructor(
@@ -130,6 +138,7 @@ export class XMLElement {
 
 	/** Устанавливает значение атрибут. */
 	setAttr(name: string, value?: string | number | boolean) {
+		changedXml(this.element.get(0))
 		this.element.attr(name, String(value))
 
 		return this
@@ -137,6 +146,7 @@ export class XMLElement {
 
 	/** Удаляет атрибут. */
 	removeAttr(name: string) {
+		changedXml(this.element.get(0))
 		this.element.removeAttr(name)
 
 		return this
@@ -144,6 +154,7 @@ export class XMLElement {
 
 	/** Удаляет элемент. */
 	remove() {
+		changedXml(this.element.get(0))
 		this.element.remove()
 	}
 
@@ -154,6 +165,7 @@ export class XMLElement {
 
 	/** Добавляет тег в элемент. */
 	appendTag(tagName: string) {
+		changedXml(this.element.get(0))
 		this.element.append(`<${tagName}></${tagName}>`)
 
 		return this
@@ -161,6 +173,7 @@ export class XMLElement {
 
 	/** Добавляет содержимое строки в элемент. */
 	append(str: string) {
+		changedXml(this.element.get(0))
 		this.element.append(str)
 
 		return this
@@ -197,6 +210,7 @@ export class XMLElement {
 
 	/** Добавляет новый элемент после данного элемента. */
 	after(child: string | XMLElement) {
+		changedXml(this.element.get(0))
 		this.element.after(isString(child)
 			? child
 			: child.element

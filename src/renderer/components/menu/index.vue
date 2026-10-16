@@ -3,7 +3,7 @@
     <header class="topbar">
       <div
         class="brand"
-        aria-label="SnowRunner Studio"
+        aria-label="Auralis SnowRunner Studio"
       >
         <div class="brand-mark">
           <img
@@ -12,7 +12,7 @@
           >
         </div>
         <div class="brand-copy">
-          <strong>SnowRunner Studio</strong>
+          <strong>Auralis SnowRunner Studio</strong>
           <nav class="project-links" :aria-label="texts.projectLinks">
             <a :href="links.profile" target="_blank" rel="noopener noreferrer" data-project-link="profile" :title="texts.githubAuthor" @click.prevent="system.openLink(links.profile)"><GithubOutlined />@OscarD0823</a>
             <a :href="links.github" target="_blank" rel="noopener noreferrer" data-project-link="repository" :title="texts.githubRepository" :aria-label="texts.githubRepository" @click.prevent="system.openLink(links.github)">Repo ↗</a>

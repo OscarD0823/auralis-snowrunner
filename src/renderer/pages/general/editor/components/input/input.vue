@@ -13,6 +13,7 @@
       >
         <InputItem
           :type="type"
+          :recovery-key="descriptor.recoveryKey"
           :number-type="numberType"
           :areas="areas ?? descriptor.areas"
           :step="step ?? descriptor.step"

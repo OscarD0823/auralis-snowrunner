@@ -4,11 +4,11 @@
     class="loading-screen"
     data-loading-screen
   >
-    <main class="splash" aria-label="SnowRunner Studio" aria-busy="true">
+    <main class="splash" aria-label="Auralis SnowRunner Studio" aria-busy="true">
       <header class="splash__brand">
         <img :src="appIcon" alt="">
         <div>
-          <strong>SnowRunner Studio</strong>
+          <strong>Auralis SnowRunner Studio</strong>
           <span>{{ texts.expedition }}</span>
         </div>
       </header>

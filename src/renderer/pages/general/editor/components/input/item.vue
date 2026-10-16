@@ -31,6 +31,7 @@ import type { EmitsToProps } from '@renderer/types'
 import { isNullable } from '@utilities/checks/renderer'
 import { Input, InputNumber } from 'ant-design-vue'
 import { computed, nextTick, ref, toRefs, watch } from 'vue'
+import {readFieldDraft,writeFieldDraft,clearFieldDraft,recoveryStatus} from '@renderer/utilities/xml-recovery'
 import { InputType, NumberType } from '../../enums'
 import type { IInputProps, ParameterEmits } from '../../types'
 
@@ -48,7 +49,9 @@ const {
 } = props
 const emit = defineEmits<ParameterEmits>()
 
-const value = ref(props.value)
+let recovered:string|number|undefined
+try{if(props.recoveryKey)recovered=readFieldDraft(localStorage,props.recoveryKey,props.value)}catch{/* Continue with the document value. */}
+const value = ref(recovered??props.value)
 const status = computed<Status>(getStatus)
 
 watch(propValue, () => {
@@ -58,6 +61,7 @@ watch(propValue, () => {
 })
 
 function changeValue(newVal: string | number) {
+    try{if(props.recoveryKey){writeFieldDraft(localStorage,props.recoveryKey,props.value,newVal);recoveryStatus('Autoguardado del campo en edición · confirma el valor antes de aplicarlo.')}}catch{recoveryStatus('No se pudo guardar el campo en edición. Copia el valor antes de cerrar.')}
 	if (newVal === '') {
 		value.value = ''
 		
@@ -73,6 +77,7 @@ async function setValue() {
 	}
 
 	emit('change', value.value)
+    try{if(props.recoveryKey)clearFieldDraft(localStorage,props.recoveryKey)}catch{/* A stale draft is rejected by its baseline. */}
 	await nextTick()
 	
 	if (value.value !== propValue.value) {

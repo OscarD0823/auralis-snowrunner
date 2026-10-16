@@ -39,6 +39,7 @@ export interface IParameterProps<
 }
 
 export interface IInputProps {
+    recoveryKey?: string
 	type: InputType
 	value: string | number
 	numberType?: NumberType

@@ -3,7 +3,7 @@
     <div class="setup-card">
       <div class="setup-brand">
         <img class="setup-mark" :src="appIcon" alt="">
-        <span>SnowRunner Studio</span>
+        <span>Auralis SnowRunner Studio</span>
       </div>
       <h1>{{ texts.welcomeTitle }}</h1>
       <p class="intro">

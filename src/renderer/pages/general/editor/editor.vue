@@ -6,6 +6,7 @@
       :file="file"
       :has-error="hasError"
     />
+    <p v-if="recoveryStatus" role="status" class="editor-recovery-status">{{ recoveryStatus }}</p>
     <div v-if="xml" class="editor-workspace">
       <VehiclePreview ref="preview" :xml="xml" :file="file" :preview-context="previewContext" />
       <Table
@@ -35,7 +36,7 @@ import { useKey } from '@renderer/utilities/use-key'
 import { di } from '@utilities/di/container'
 import { DIRS_TOKEN, DLC_TOKEN, MODS_TOKEN } from '@utilities/di/renderer/tokens'
 import { storeToRefs } from 'pinia'
-import { nextTick, onMounted, provide, ref, shallowRef } from 'vue'
+import { nextTick, onMounted, onBeforeUnmount, provide, ref, shallowRef } from 'vue'
 import { VEHICLE_APPEARANCE, type VehiclePreviewContext } from '@renderer/utilities/vehicle-appearance'
 import { loadLocalization, Localization, LocalizationStrings } from '@localization/renderer'
 import { useEditorStore } from '../store/editor'
@@ -46,6 +47,7 @@ import Table from './components/tables/table.vue'
 import type { ReadyEmits, ReadyProps } from './components/utilities'
 import { filesUtils } from './utilities/files'
 import { provideFile } from './utilities/import'
+import {flushXmlDrafts} from '@renderer/utilities/xml-recovery'
 import { resetUtils } from './utilities/reset'
 
 export type EditorProps = Props & ReadyProps
@@ -81,6 +83,10 @@ const { setInfo } = editorStore
 const { route } = usePageStore()
 
 const xml = shallowRef<TruckXML | null>(null)
+const recoveryStatus=ref('')
+const onRecovery=(event:Event)=>{recoveryStatus.value=String((event as CustomEvent).detail)}
+onMounted(()=>window.addEventListener('auralis-xml-recovery',onRecovery))
+onBeforeUnmount(()=>{flushXmlDrafts();window.removeEventListener('auralis-xml-recovery',onRecovery)})
 const header = ref<InstanceType<typeof EditorHeader> | null>(null)
 const hasError = ref<boolean>(false)
 const previewContext = ref<VehiclePreviewContext>()

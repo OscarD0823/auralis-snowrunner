@@ -1,0 +1,16 @@
+import {readXmlDraft,writeXmlDraft} from './editor-recovery';
+type DomNode={parent?:DomNode|null;prev?:DomNode|null;name?:string;type?:string};
+type DocumentDraft={node:DomNode;path:string;baseline:string;snapshot:()=>string;storage:Storage};
+const documents=new WeakMap<object,DocumentDraft>(),dirty=new Set<DocumentDraft>();
+let timer:ReturnType<typeof setTimeout>|undefined,watching=false;
+const root=(node:DomNode)=>{while(node.parent)node=node.parent;return node;};
+export function recoveryStatus(message:string){if(typeof window!=='undefined')window.dispatchEvent(new CustomEvent('auralis-xml-recovery',{detail:message}));}
+export function registerXmlDocument(node:DomNode,path:string,baseline:string,snapshot:()=>string,storage:Storage){documents.set(root(node),{node:root(node),path,baseline,snapshot,storage});if(!watching&&typeof window!=='undefined'){watching=true;window.addEventListener('pagehide',flushXmlDrafts);document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')flushXmlDrafts();});}}
+export function changedXml(node:DomNode|undefined){if(!node)return;const doc=documents.get(root(node));if(!doc)return;dirty.add(doc);if(!timer)timer=setTimeout(flushXmlDrafts,400);}
+export function flushXmlDrafts(){if(timer)clearTimeout(timer);timer=undefined;for(const doc of dirty){try{writeXmlDraft(doc.storage,doc.path,doc.baseline,doc.snapshot());dirty.delete(doc);recoveryStatus('Autoguardado local de los ajustes · aplica los cambios con Guardar');}catch{recoveryStatus('No se pudo guardar el borrador. Exporta los ajustes antes de cerrar.');}}}
+export function fieldRecoveryKey(node:DomNode|undefined,name:string){if(!node)return;const doc=documents.get(root(node));if(!doc)return;const parts:string[]=[];for(let n:DomNode|null|undefined=node;n?.parent;n=n.parent){let index=0;for(let p=n.prev;p;p=p.prev)if(p.name===n.name)index++;parts.unshift((n.name??n.type??'node')+':'+index);}return doc.path+'|'+parts.join('/')+'@'+name;}
+export function pendingXml(storage:Storage,path:string,baseline:string){const draft=readXmlDraft(storage,path);if(draft?.xml===baseline){writeXmlDraft(storage,path,baseline,baseline);return;}if(draft?.baseline===baseline){recoveryStatus('Borrador recuperado. Revisa los ajustes antes de aplicarlos con Guardar.');return draft.xml;}if(draft)recoveryStatus('El archivo cambió fuera del editor; el borrador anterior no se aplicó.');}
+const fieldKey=(key:string)=>'snowrunner-studio-field-recovery:'+key;
+export function readFieldDraft(storage:Pick<Storage,'getItem'>,key:string,baseline:string|number):string|number|undefined{try{const v=JSON.parse(storage.getItem(fieldKey(key))??'null');if(v?.baseline===String(baseline)&&(typeof v.value==='string'||typeof v.value==='number'&&Number.isFinite(v.value)))return v.value;}catch{/* Never apply corrupt metadata. */}}
+export function writeFieldDraft(storage:Pick<Storage,'setItem'|'removeItem'>,key:string,baseline:string|number,value:string|number){if(String(value)===String(baseline))storage.removeItem(fieldKey(key));else storage.setItem(fieldKey(key),JSON.stringify({baseline:String(baseline),value}));}
+export function clearFieldDraft(storage:Pick<Storage,'removeItem'>,key:string){storage.removeItem(fieldKey(key));}

@@ -8,7 +8,7 @@ import { testOptionalUpdates } from './test-optional-updates-ui.mjs'
 import { testJourney } from './test-journey.mjs'
 
 const repo = dirname(dirname(fileURLToPath(import.meta.url)))
-const exe = process.env.SNOWRUNNER_APP_EXE || join(repo, 'out', 'SnowRunner Studio-win32-x64', 'SnowRunner Studio.exe')
+const exe = process.env.SNOWRUNNER_APP_EXE || join(repo, 'out', 'Auralis SnowRunner Studio-win32-x64', 'Auralis SnowRunner Studio.exe')
 const outputDir = join(repo, '.vite', 'library-ui-smoke')
 const dataRoot = join(outputDir, 'data')
 let initialPath = join(repo, '.snowrunner-data', 'backups', 'initial.pak')
@@ -18,7 +18,7 @@ const port = 9334
 try {
 	const installedConfig = JSON.parse(await readFile(join(
 		process.env.APPDATA,
-		'SnowRunner Studio',
+		'Auralis SnowRunner Studio',
 		'jsons',
 		'config.json'
 	), 'utf8'))
@@ -414,7 +414,7 @@ await new Promise(resolve => setTimeout(resolve, 500))
 
 const shot = await call('Page.captureScreenshot', { format: 'png', captureBeyondViewport: false })
 await writeFile(join(outputDir, 'components-960x620.png'), Buffer.from(shot.data, 'base64'))
-if (truckState.title !== 'SnowRunner Studio' || truckState.cards < 100) {
+if (truckState.title !== 'Auralis SnowRunner Studio' || truckState.cards < 100) {
 	throw new Error(`La biblioteca de vehículos no se cargó: ${JSON.stringify(truckState)}`)
 }
 if (!truckState.visibleImages || !truckState.officialImages || truckState.brokenImages.length

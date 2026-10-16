@@ -5,7 +5,7 @@ import { readFile, readdir, stat } from 'node:fs/promises'
 import { join, relative } from 'node:path'
 import { openPromise } from 'yauzl'
 
-const root=process.cwd(),appRoot=join(root,'out/SnowRunner Studio-win32-x64/resources/app')
+const root=process.cwd(),appRoot=join(root,'out/Auralis SnowRunner Studio-win32-x64/resources/app')
 const version=JSON.parse(await readFile(join(root,'package.json'),'utf8')).version
 assert.equal(JSON.parse(await readFile(join(appRoot,'package.json'),'utf8')).version,version)
 async function hash(stream){const h=createHash('sha256');for await(const chunk of stream)h.update(chunk);return h.digest('hex')}

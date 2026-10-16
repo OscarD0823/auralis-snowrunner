@@ -13,7 +13,7 @@ export class Template {
 
 	/** Изменить заголовок. */
 	changeTitle() {
-		document.title = 'SnowRunner Studio'
+		document.title = 'Auralis SnowRunner Studio'
 	}
 
 	/** Отследить нажатие горячих клавиш. */

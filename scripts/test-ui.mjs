@@ -6,7 +6,7 @@ import { testLoadingLayout } from './test-loading-layout.mjs'
 import { testJourney } from './test-journey.mjs'
 
 const repo = dirname(dirname(fileURLToPath(import.meta.url)))
-const exe = process.env.SNOWRUNNER_APP_EXE || join(repo, 'out', 'SnowRunner Studio-win32-x64', 'SnowRunner Studio.exe')
+const exe = process.env.SNOWRUNNER_APP_EXE || join(repo, 'out', 'Auralis SnowRunner Studio-win32-x64', 'Auralis SnowRunner Studio.exe')
 const outputDir = join(repo, '.vite', 'ui-smoke')
 const appData = join(outputDir, 'appdata')
 const port = 9333
@@ -148,10 +148,10 @@ for (const viewport of [{ width: 600, height: 520 }, { width: 960, height: 620 }
 }
 
 
-if (journeyFrames.length !== 3 || new Set(journeyFrames.map(frame => frame.transform)).size !== 3 || journeyFrames.some(frame => !frame.name.includes('SnowRunner Studio'))) throw new Error(`El camión no recorre el terreno llevando el nombre: ${JSON.stringify(journeyFrames)}`)
+if (journeyFrames.length !== 3 || new Set(journeyFrames.map(frame => frame.transform)).size !== 3 || journeyFrames.some(frame => !frame.name.includes('Auralis SnowRunner Studio'))) throw new Error(`El camión no recorre el terreno llevando el nombre: ${JSON.stringify(journeyFrames)}`)
 
 for (const result of results) {
-	if (result.title !== 'SnowRunner Studio') throw new Error(`Título inesperado: ${result.title}`)
+	if (result.title !== 'Auralis SnowRunner Studio') throw new Error(`Título inesperado: ${result.title}`)
 	if (!result.setupVisible || result.languageOptions !== 13) throw new Error(`El inicio no se cargó completo: ${JSON.stringify(result)}`)
 	if (result.bodyWidth > result.viewport.width || result.outside.length) throw new Error(`Hay controles fuera de pantalla: ${JSON.stringify(result)}`)
 	if (result.brokenImages.length) throw new Error(`Hay imágenes rotas: ${result.brokenImages.join(', ')}`)

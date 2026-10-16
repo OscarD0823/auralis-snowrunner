@@ -1,3 +1,4 @@
+import {fieldRecoveryKey} from '@renderer/utilities/xml-recovery'
 import type { IInputAreas } from '@renderer/pages/general/editor/types'
 import { hasItems } from '@utilities/checks'
 import { arrayToString, boolToString, numberToString, stringToArray, stringToBoolean, stringToNumber } from '@utilities/strings/index'
@@ -456,6 +457,7 @@ function createBaseAttrDescriptor<Value>(
 	return {
 		name,
 		selector: instance.selector,
+        recoveryKey: fieldRecoveryKey(instance.toCheerio().get(0),name),
 		default: defaultValue,
 		get limit() { return instance[PROPERTIES]?.[name]?.limit },
 		get step() { return instance[PROPERTIES]?.[name]?.step },
@@ -504,6 +506,7 @@ export interface IAttrDescriptor<Value = unknown> {
 	name: string
 
 	/** Селектор элемента, который имеет данный атрибут. */
+	recoveryKey?: string
 	selector: string
 
 	/** Ограничение значения. */
