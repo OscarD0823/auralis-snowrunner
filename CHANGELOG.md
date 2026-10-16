@@ -2,12 +2,15 @@
 
 [Portada](README.md) · [Documentación](docs/README.md) · [Última descarga](https://github.com/OscarD0823/auralis-snowrunner/releases/latest)
 
-## Versión actual: 2.6.6
+## Versión actual: 2.7.2
 
 Consola de expedición con paneles y controles de acero, mejor lectura de valores y presets seleccionados. Mantiene el visor lateral, la cabecera compacta y las actualizaciones voluntarias.
 
+Actualización Auralis con el logo original, enlaces vigentes y recuperación local.
+
 ## Notas disponibles
 
+- [2.7.2](docs/releases/2.7.2.md)
 - [2.6.6](docs/releases/2.6.6.md)
 - [2.6.5](docs/releases/2.6.5.md)
 - [2.6.4](docs/releases/2.6.4.md) — preparación sin instalador en GitHub.
