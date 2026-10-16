@@ -10,7 +10,7 @@ export type * from '../types'
 /** Менеджер путей. [main] */
 export class Paths implements IMainPathsManager {
 	/** URL репозитория. */
-	private readonly REPOS_URL = 'https://github.com/OscarD0823/snowrunner'
+	private readonly REPOS_URL = 'https://github.com/OscarD0823/auralis-snowrunner'
 
 	/** Папка, в которой находится текущий исполняемый скрипт. */
 	private readonly dirname = __dirname
@@ -25,7 +25,7 @@ export class Paths implements IMainPathsManager {
 	private readonly workspaceRoot = this.getWorkspaceRoot()
 
 	accessor object: IPaths = Object.freeze({
-		publicInfo: 'https://api.github.com/repos/OscarD0823/snowrunner/releases/latest',
+		publicInfo: 'https://api.github.com/repos/OscarD0823/auralis-snowrunner/releases/latest',
 		downloadPage: `${this.REPOS_URL}/releases/latest`,
 		update: `${this.REPOS_URL}/releases/download`,
 		root: this.dataRoot,

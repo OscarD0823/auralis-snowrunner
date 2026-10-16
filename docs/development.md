@@ -7,7 +7,7 @@
 Requisitos: Windows x64, Node.js 22 o una versión compatible y npm.
 
 ```powershell
-git clone https://github.com/OscarD0823/snowrunner.git
+git clone https://github.com/OscarD0823/auralis-snowrunner.git
 cd snowrunner
 npm ci
 npm run check

@@ -131,8 +131,8 @@ const { setCategory, setSource } = listStore
 const links = {
   profile: 'https://github.com/OscarD0823',
 	/** github.com. */
-	github: 'https://github.com/OscarD0823/snowrunner',
-	releases: 'https://github.com/OscarD0823/snowrunner/releases'
+	github: 'https://github.com/OscarD0823/auralis-snowrunner',
+	releases: 'https://github.com/OscarD0823/auralis-snowrunner/releases'
 }
 
 const workspaceItems = computed(() => [

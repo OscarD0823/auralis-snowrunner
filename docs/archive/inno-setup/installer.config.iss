@@ -3,7 +3,7 @@
 #define MyAppName "SnowRunner Studio"
 #define MyAppVersion "0.1.0"
 #define MyAppPublisher "OscarD0823"
-#define MyAppURL "https://github.com/OscarD0823/snowrunner"
+#define MyAppURL "https://github.com/OscarD0823/auralis-snowrunner"
 #define MyAppExeName "SnowRunner Studio.exe"
 
 [Setup]

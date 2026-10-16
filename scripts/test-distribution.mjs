@@ -17,7 +17,7 @@ assert.deepEqual([...portable.keys()].filter(n=>/ui-smoke|game-images|game-model
 const renderers=[...portable.keys()].filter(n=>/\.vite\/renderer\/(?:.*\/)?assets\/[^/]+\.js$/.test(n))
 assert(renderers.length,'Missing renderer bundle')
 const bundle=(await Promise.all(renderers.map(n=>readFile(join(appRoot,n),'utf8')))).join('\n')
-for(const key of ['data-project-link','https://github.com/OscarD0823','https://github.com/OscarD0823/snowrunner'])assert(bundle.includes(key),'Missing identity/link in renderer: '+key)
+for(const key of ['data-project-link','https://github.com/OscarD0823','https://github.com/OscarD0823/auralis-snowrunner'])assert(bundle.includes(key),'Missing identity/link in renderer: '+key)
 const releases=(await readFile(join(output,'make/squirrel.windows/x64/RELEASES'),'utf8')).trim().split(/\s+/)
 assert(releases[1].includes('-'+version+'-'))
 const pkg=join(output,'make/squirrel.windows/x64',releases[1])

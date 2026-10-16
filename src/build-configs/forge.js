@@ -43,7 +43,7 @@ class ForgeConfig {
 						exe: 'Auralis SnowRunner Studio.exe',
 						setupExe: 'Auralis SnowRunner Studio Setup.exe',
 						setupIcon: join(_dirname, '../images/favicon.ico'),
-						iconUrl: 'https://raw.githubusercontent.com/OscarD0823/snowrunner/main/src/images/favicon.ico',
+						iconUrl: 'https://raw.githubusercontent.com/OscarD0823/auralis-snowrunner/main/src/images/favicon.ico',
 						shortcutName: 'Auralis SnowRunner Studio',
 						noMsi: true
 					}

@@ -8,4 +8,4 @@
 - [Privacidad](../PRIVACY.md) y [avisos de terceros](../NOTICE.md).
 - [Archivo histórico](archive/README.md): decisiones anteriores y preparación para Store ya inactiva.
 
-La aplicación y sus actualizaciones se descargan desde [GitHub Releases](https://github.com/OscarD0823/snowrunner/releases/latest). No necesitas los archivos del código fuente para instalarla.
+La aplicación y sus actualizaciones se descargan desde [GitHub Releases](https://github.com/OscarD0823/auralis-snowrunner/releases/latest). No necesitas los archivos del código fuente para instalarla.

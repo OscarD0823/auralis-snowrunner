@@ -1,6 +1,6 @@
 # Guía de uso · SnowRunner Studio
 
-[Portada](../README.md) · [Documentación](README.md) · [Última descarga](https://github.com/OscarD0823/snowrunner/releases/latest)
+[Portada](../README.md) · [Documentación](README.md) · [Última descarga](https://github.com/OscarD0823/auralis-snowrunner/releases/latest)
 
 ## Primer inicio
 
@@ -49,6 +49,6 @@ La distribución es exclusiva de GitHub. Abre **Actualizaciones** con el botón 
 
 Si hay una versión estable nueva, puedes **Descargar instalador**, leer la versión en GitHub o **Seguir con esta versión**. La descarga abre el navegador: no ejecuta el instalador ni cierra el editor. Guarda tus cambios y cierra el editor antes de ejecutar el instalador descargado. El instalador no distribuye modelos, texturas ni carátulas del juego.
 
-Para informar de un problema, usa las [incidencias del repositorio](https://github.com/OscarD0823/snowrunner/issues). Indica la versión del programa, el vehículo o componente y el mensaje de error. No publiques partidas, datos personales ni paquetes completos del juego.
+Para informar de un problema, usa las [incidencias del repositorio](https://github.com/OscarD0823/auralis-snowrunner/issues). Indica la versión del programa, el vehículo o componente y el mensaje de error. No publiques partidas, datos personales ni paquetes completos del juego.
 
 Consulta también los [avisos de privacidad](../PRIVACY.md).

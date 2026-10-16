@@ -12,7 +12,7 @@ La distribución actual es exclusiva de GitHub. Solo al pulsar **Buscar actualiz
 
 SnowRunner y sus recursos pertenecen a sus respectivos titulares. La aplicación no incluye archivos ni carátulas del juego; solo procesa los que ya existen en la instalación legítima del usuario. Este proyecto no está afiliado, respaldado ni patrocinado por Saber Interactive o Focus Entertainment.
 
-Consultas de privacidad: abre una incidencia en https://github.com/OscarD0823/snowrunner/issues
+Consultas de privacidad: abre una incidencia en https://github.com/OscarD0823/auralis-snowrunner/issues
 
 ## English
 
@@ -24,4 +24,4 @@ The current distribution is GitHub-only. GitHub is contacted only when **Check f
 
 SnowRunner and its assets belong to their respective owners. The app does not include game files or game covers; it only processes files already present in the user's legitimate installation. This project is not affiliated with, endorsed by, or sponsored by Saber Interactive or Focus Entertainment.
 
-Privacy questions: open an issue at https://github.com/OscarD0823/snowrunner/issues
+Privacy questions: open an issue at https://github.com/OscarD0823/auralis-snowrunner/issues

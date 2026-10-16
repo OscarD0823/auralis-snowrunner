@@ -7,7 +7,7 @@
 <p align="center">Prepare your expedition. A visual editor for SnowRunner vehicles, trailers and components.</p>
 
 <p align="center">
-  <a href="https://github.com/OscarD0823/snowrunner/releases/latest"><strong>Download for Windows</strong></a> ·
+  <a href="https://github.com/OscarD0823/auralis-snowrunner/releases/latest"><strong>Download for Windows</strong></a> ·
   <a href="docs/user-guide.md">User guide (Spanish)</a> ·
   <a href="CHANGELOG.md">Release history</a> ·
   <a href="README.md">Español</a>
@@ -15,7 +15,7 @@
 
 ## Install
 
-Open **Assets** on the [latest release](https://github.com/OscarD0823/snowrunner/releases/latest) and download **SnowRunner.Studio.Setup.exe**. Requires Windows x64 and a local SnowRunner installation; Node.js is only needed for development. Updates are distributed through GitHub, not Microsoft Store.
+Open **Assets** on the [latest release](https://github.com/OscarD0823/auralis-snowrunner/releases/latest) and download **SnowRunner.Studio.Setup.exe**. Requires Windows x64 and a local SnowRunner installation; Node.js is only needed for development. Updates are distributed through GitHub, not Microsoft Store.
 
 **Optional updates:** use ↻ to check for a new release, download it in your browser or keep the current version. Nothing is downloaded or installed automatically.
 
@@ -41,6 +41,6 @@ See the [documentation index](docs/README.md), [development guide](docs/developm
 
 ## Author and license
 
-Edition, interface and workflow by [@OscarD0823](https://github.com/OscarD0823). Companion project: [RoadCraft Studio](https://github.com/OscarD0823/roadcraft).
+Edition, interface and workflow by [@OscarD0823](https://github.com/OscarD0823). Companion project: [RoadCraft Studio](https://github.com/OscarD0823/auralis-roadcraft).
 
 [MIT license](LICENSE), with required [third-party notices](NOTICE.md) and [licenses](THIRD_PARTY_NOTICES.md) retained. Unofficial tool, not affiliated with Saber Interactive or Focus Entertainment. Game resources are read from the user's local installation and are not redistributed.

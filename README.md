@@ -7,7 +7,7 @@
 <p align="center">Prepara tu expedición. Un editor visual para vehículos, remolques y componentes de SnowRunner.</p>
 
 <p align="center">
-  <a href="https://github.com/OscarD0823/snowrunner/releases/latest"><strong>Descargar para Windows</strong></a> ·
+  <a href="https://github.com/OscarD0823/auralis-snowrunner/releases/latest"><strong>Descargar para Windows</strong></a> ·
   <a href="docs/user-guide.md">Guía de uso</a> ·
   <a href="CHANGELOG.md">Novedades</a> ·
   <a href="README.EN.md">English</a>
@@ -15,7 +15,7 @@
 
 ## Instalar
 
-En la [última versión publicada](https://github.com/OscarD0823/snowrunner/releases/latest), abre **Assets** y descarga **SnowRunner.Studio.Setup.exe**. Está pensado para Windows x64 con SnowRunner instalado; no necesitas Node.js para usarlo. Las actualizaciones se distribuyen por GitHub, no por Microsoft Store.
+En la [última versión publicada](https://github.com/OscarD0823/auralis-snowrunner/releases/latest), abre **Assets** y descarga **SnowRunner.Studio.Setup.exe**. Está pensado para Windows x64 con SnowRunner instalado; no necesitas Node.js para usarlo. Las actualizaciones se distribuyen por GitHub, no por Microsoft Store.
 
 **Actualizaciones opcionales:** el botón ↻ permite buscar una versión nueva, descargarla en el navegador o seguir con la actual. No hay descargas ni instalaciones automáticas.
 
@@ -46,6 +46,6 @@ La vista 3D es una escena propia, no el motor ni la física de SnowRunner. Usa e
 
 ## Autor y licencia
 
-Edición, interfaz y flujo de trabajo por [@OscarD0823](https://github.com/OscarD0823). También disponible: [RoadCraft Studio](https://github.com/OscarD0823/roadcraft).
+Edición, interfaz y flujo de trabajo por [@OscarD0823](https://github.com/OscarD0823). También disponible: [RoadCraft Studio](https://github.com/OscarD0823/auralis-roadcraft).
 
 Código bajo [licencia MIT](LICENSE), conservando los [avisos de terceros](NOTICE.md) y sus [licencias](THIRD_PARTY_NOTICES.md). Herramienta no oficial, sin afiliación con Saber Interactive ni Focus Entertainment. Los recursos del juego se leen de tu instalación; no se incluyen en el repositorio ni en el instalador.
